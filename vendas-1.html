@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduKids — Plataforma de Alfabetização Infantil 🎓</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --purple:#6C63FF;
+  --pink:#FF6584;
+  --green:#43E97B;
+  --teal:#14B8A6;
+  --yellow:#FFD700;
+  --orange:#FF8C42;
+  --dark:#1E1B4B;
+  --bg:#FFF8F0;
+  --white:#FFFFFF;
+  --text:#2D2D2D;
+  --muted:#666;
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block;}
+
+/* ══════════════════════════════════════════
+   FLOATING BG SHAPES
+══════════════════════════════════════════ */
+.bg-blob{
+  position:absolute;border-radius:50%;opacity:.12;
+  animation:floatBlob 7s ease-in-out infinite;pointer-events:none;
+}
+@keyframes floatBlob{
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-28px) scale(1.05);}
+}
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+.navbar{
+  position:sticky;top:0;z-index:999;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:3px solid #EDE9FE;
+  padding:12px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 4px 20px rgba(108,99,255,.08);
+}
+.nav-logo{
+  font-family:'Fredoka One',cursive;
+  font-size:1.5rem;
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:flex;align-items:center;gap:8px;
+  text-decoration:none;
+}
+.nav-logo span{font-size:1.6rem;-webkit-text-fill-color:initial;}
+.nav-cta{
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  color:#fff;border:none;border-radius:30px;
+  padding:11px 24px;
+  font-family:'Fredoka One',cursive;font-size:1rem;
+  cursor:pointer;text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 16px rgba(108,99,255,.35);
+  white-space:nowrap;
+}
+.nav-cta:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 8px 24px rgba(108,99,255,.45);}
+
+/* ── BOTÃO ÁREA DE MEMBROS ── */
+.nav-members{
+  display:inline-flex;align-items:center;gap:7px;
+  background:transparent;
+  color:var(--purple);
+  border:2px solid var(--purple);
+  border-radius:30px;
+  padding:9px 20px;
+  font-family:'Fredoka One',cursive;font-size:.95rem;
+  cursor:pointer;text-decoration:none;
+  transition:all .22s;
+  white-space:nowrap;
+}
+.nav-members:hover{
+  background:var(--purple);
+  color:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(108,99,255,.3);
+}
+.nav-members .members-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 6px rgba(67,233,123,.8);
+  animation:pulseDot 2s ease infinite;
+  flex-shrink:0;
+}
+@keyframes pulseDot{
+  0%,100%{transform:scale(1);opacity:1;}
+  50%{transform:scale(1.5);opacity:.6;}
+}
+/* nav-buttons group */
+.nav-buttons{
+  display:flex;align-items:center;gap:10px;
+}
+@media(max-width:560px){
+  .nav-members{padding:7px 13px;font-size:.78rem;gap:5px;}
+  .nav-members span:not(.members-dot){display:none;}
+  .nav-members::after{content:'Membros';}
+}
+
+/* ══════════════════════════════════════════
+   HERO — DOBRA PRINCIPAL
+══════════════════════════════════════════ */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#1E1B4B 0%,#4C1D95 40%,#6C63FF 75%,#FF6584 100%);
+  padding:80px 24px 60px;
+  min-height:92vh;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-blob-1{width:400px;height:400px;background:var(--pink);top:-80px;right:-80px;animation-delay:0s;}
+.hero-blob-2{width:300px;height:300px;background:var(--green);bottom:-60px;left:-60px;animation-delay:2s;}
+.hero-blob-3{width:200px;height:200px;background:var(--yellow);top:30%;left:10%;animation-delay:4s;}
+
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;
+  align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);
+  border-radius:30px;padding:8px 20px;
+  font-size:.85rem;font-weight:800;color:#fff;
+  margin-bottom:20px;
+  backdrop-filter:blur(6px);
+}
+.hero h1{
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(2.2rem,5vw,3.6rem);
+  color:#fff;line-height:1.15;
+  margin-bottom:20px;
+}
+.hero h1 .highlight{
+  background:linear-gradient(135deg,var(--yellow),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  color:rgba(255,255,255,.85);
+  font-size:1.1rem;font-weight:700;
+  line-height:1.65;margin-bottom:32px;
+}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;}
+.hero-chip{
+  background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.3);
+  border-radius:20px;padding:7px 16px;
+  font-size:.82rem;font-weight:800;color:#fff;
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--yellow),var(--orange));
+  color:#1E1B4B;border:none;border-radius:30px;
+  padding:16px 36px;font-family:'Fredoka One',cursive;font-size:1.15rem;
+  cursor:pointer;text-decoration:none;display:inline-block;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 6px 24px rgba(255,140,66,.45);
+}
+.btn-primary:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 32px rgba(255,140,66,.55);}
+.btn-secondary{
+  background:rgba(255,255,255,.15);
+  color:#fff;border:2.5px solid rgba(255,255,255,.5);
+  border-radius:30px;padding:14px 32px;
+  font-family:'Fredoka One',cursive;font-size:1.05rem;
+  cursor:pointer;text-decoration:none;display:inline-block;
+  transition:background .2s;backdrop-filter:blur(4px);
+}
+.btn-secondary:hover{background:rgba(255,255,255,.25);}
+
+.hero-image-wrap{
+  position:relative;display:flex;justify-content:center;
+}
+.hero-image-wrap img{
+  border-radius:28px;
+  box-shadow:0 30px 80px rgba(0,0,0,.4);
+  border:4px solid rgba(255,255,255,.2);
+  animation:heroFloat 4s ease-in-out infinite;
+}
+@keyframes heroFloat{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-16px);}
+}
+.hero-star{
+  position:absolute;font-size:2.2rem;
+  animation:spin 5s linear infinite;
+}
+.hero-star.s1{top:-20px;right:30px;}
+.hero-star.s2{bottom:10px;left:-10px;animation-delay:1.5s;font-size:1.6rem;}
+@keyframes spin{0%{transform:rotate(0deg) scale(1);}50%{transform:rotate(180deg) scale(1.2);}100%{transform:rotate(360deg) scale(1);}}
+
+.hero-stats{
+  display:flex;gap:24px;margin-top:36px;flex-wrap:wrap;
+}
+.hero-stat{text-align:center;}
+.hero-stat-num{
+  font-family:'Fredoka One',cursive;font-size:2rem;color:var(--yellow);
+}
+.hero-stat-lbl{font-size:.78rem;font-weight:800;color:rgba(255,255,255,.75);}
+
+/* ══════════════════════════════════════════
+   SECTION SHARED
+══════════════════════════════════════════ */
+.section-wrap{
+  max-width:1100px;margin:0 auto;
+  padding:80px 24px;
+}
+.section-title{
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  text-align:center;margin-bottom:12px;
+}
+.section-sub{
+  text-align:center;color:var(--muted);
+  font-size:1rem;font-weight:700;
+  margin-bottom:48px;line-height:1.6;
+  max-width:600px;margin-left:auto;margin-right:auto;
+}
+
+/* ══════════════════════════════════════════
+   FAMILY CONNECTION
+══════════════════════════════════════════ */
+.family-section{
+  background:#fff;
+  position:relative;overflow:hidden;
+}
+.family-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,var(--purple),var(--pink),var(--green));
+}
+.family-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+}
+.family-image-wrap{position:relative;}
+.family-image-wrap img{
+  border-radius:28px;
+  box-shadow:0 16px 60px rgba(108,99,255,.2);
+}
+.family-badge{
+  position:absolute;top:-16px;right:-16px;
+  background:linear-gradient(135deg,var(--yellow),var(--orange));
+  border-radius:50%;width:90px;height:90px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(255,140,66,.4);
+  font-family:'Fredoka One',cursive;color:#fff;text-align:center;
+  font-size:.75rem;line-height:1.2;
+}
+.family-badge span{font-size:1.6rem;font-family:'Fredoka One',cursive;}
+
+.family-content h2{
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:16px;
+}
+.family-content p{
+  color:var(--muted);font-size:1rem;font-weight:700;
+  line-height:1.75;margin-bottom:24px;
+}
+.benefit-list{list-style:none;display:flex;flex-direction:column;gap:14px;}
+.benefit-list li{
+  display:flex;align-items:flex-start;gap:14px;
+  background:#F3F0FF;border-radius:16px;padding:14px 18px;
+  font-weight:800;font-size:.95rem;color:var(--dark);
+}
+.benefit-list li .bi{
+  font-size:1.5rem;flex-shrink:0;margin-top:2px;
+}
+
+/* ══════════════════════════════════════════
+   PLATFORM DIGITAL
+══════════════════════════════════════════ */
+.platform-section{
+  background:linear-gradient(135deg,#1E1B4B 0%,#4C1D95 60%,#6C63FF 100%);
+  position:relative;overflow:hidden;
+}
+.platform-section .bg-blob{background:rgba(255,255,255,1);}
+.platform-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+}
+.platform-content h2{
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  color:#fff;margin-bottom:16px;
+}
+.platform-content p{
+  color:rgba(255,255,255,.8);font-size:1rem;font-weight:700;
+  line-height:1.75;margin-bottom:28px;
+}
+.platform-features{display:flex;flex-direction:column;gap:14px;}
+.pf-item{
+  display:flex;align-items:center;gap:16px;
+  background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.15);
+  border-radius:16px;padding:16px 20px;
+  backdrop-filter:blur(6px);
+  transition:background .2s;
+}
+.pf-item:hover{background:rgba(255,255,255,.18);}
+.pf-icon{font-size:1.8rem;flex-shrink:0;}
+.pf-text strong{
+  font-family:'Fredoka One',cursive;
+  font-size:1rem;color:#fff;display:block;
+}
+.pf-text span{font-size:.85rem;color:rgba(255,255,255,.7);font-weight:700;}
+
+.platform-image-wrap img{
+  border-radius:24px;
+  box-shadow:0 24px 80px rgba(0,0,0,.5);
+  border:3px solid rgba(255,255,255,.15);
+}
+
+/* ══════════════════════════════════════════
+   KIT COMPLETO
+══════════════════════════════════════════ */
+.kit-section{
+  background:#FFF8F0;
+  text-align:center;
+}
+.kit-section .section-title{
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.kit-image-wrap{
+  position:relative;display:inline-block;
+  max-width:780px;margin:0 auto;
+}
+.kit-image-wrap img{
+  border-radius:28px;
+  box-shadow:0 24px 80px rgba(108,99,255,.22);
+}
+.kit-items{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:14px;margin-top:40px;
+}
+.kit-item{
+  display:flex;align-items:center;gap:10px;
+  background:#fff;border-radius:50px;
+  padding:10px 20px;
+  border:2.5px solid #EDE9FE;
+  font-weight:800;font-size:.88rem;color:var(--purple);
+  box-shadow:0 4px 12px rgba(108,99,255,.08);
+  transition:transform .2s;
+}
+.kit-item:hover{transform:translateY(-3px);}
+.kit-item span{font-size:1.2rem;}
+
+/* ══════════════════════════════════════════
+   PLANS
+══════════════════════════════════════════ */
+.plans-section{
+  background:linear-gradient(180deg,#F3F0FF 0%,#FFF8F0 100%);
+}
+.plans-section .section-title{
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.plans-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+  align-items:start;
+}
+.plan-card{
+  background:#fff;
+  border-radius:24px;
+  padding:28px 20px;
+  text-align:center;
+  border:3px solid #EDE9FE;
+  box-shadow:0 6px 20px rgba(0,0,0,.06);
+  transition:transform .25s,box-shadow .25s;
+  position:relative;
+  display:flex;flex-direction:column;gap:16px;
+}
+.plan-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 48px rgba(108,99,255,.18);
+}
+.plan-card.featured{
+  background:linear-gradient(160deg,#1E1B4B 0%,#4C1D95 50%,#6C63FF 100%);
+  border-color:var(--yellow);
+  border-width:3px;
+  transform:scale(1.07);
+  box-shadow:0 24px 60px rgba(108,99,255,.45);
+  z-index:2;
+}
+.plan-card.featured:hover{
+  transform:scale(1.07) translateY(-8px);
+}
+
+.plan-ribbon{
+  position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--yellow),var(--orange));
+  border-radius:30px;padding:6px 18px;
+  font-family:'Fredoka One',cursive;font-size:.75rem;color:#1E1B4B;
+  white-space:nowrap;
+  box-shadow:0 4px 14px rgba(255,140,66,.4);
+}
+.plan-icon{font-size:2.4rem;}
+.plan-name{
+  font-family:'Fredoka One',cursive;
+  font-size:1.2rem;color:var(--dark);
+}
+.plan-card.featured .plan-name{color:#fff;}
+
+.plan-price-wrap{}
+.plan-currency{
+  font-size:.85rem;font-weight:800;color:var(--muted);vertical-align:top;
+  line-height:2.4;
+}
+.plan-card.featured .plan-currency{color:rgba(255,255,255,.7);}
+.plan-price{
+  font-family:'Fredoka One',cursive;
+  font-size:2.4rem;color:var(--purple);
+  line-height:1;display:inline;
+}
+.plan-card.featured .plan-price{color:var(--yellow);}
+.plan-period{
+  font-size:.8rem;font-weight:800;color:var(--muted);
+  display:block;margin-top:4px;
+}
+.plan-card.featured .plan-period{color:rgba(255,255,255,.7);}
+.plan-saving{
+  font-size:.78rem;font-weight:800;
+  background:#D1FAE5;color:#065F46;
+  border-radius:20px;padding:4px 12px;
+  display:inline-block;
+}
+.plan-card.featured .plan-saving{
+  background:rgba(255,255,255,.2);color:#fff;
+}
+.plan-features{
+  list-style:none;display:flex;flex-direction:column;gap:8px;
+  text-align:left;
+}
+.plan-features li{
+  display:flex;align-items:center;gap:8px;
+  font-size:.82rem;font-weight:700;color:var(--text);
+}
+.plan-card.featured .plan-features li{color:rgba(255,255,255,.85);}
+.plan-features li::before{
+  content:'✓';
+  display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green),var(--teal));
+  color:#fff;font-size:.7rem;font-weight:900;flex-shrink:0;
+}
+
+.plan-btn{
+  display:block;width:100%;padding:14px;
+  border:none;border-radius:30px;
+  font-family:'Fredoka One',cursive;font-size:1rem;
+  cursor:pointer;text-decoration:none;
+  text-align:center;
+  transition:transform .2s,box-shadow .2s;
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  color:#fff;
+  box-shadow:0 4px 16px rgba(108,99,255,.3);
+  margin-top:auto;
+}
+.plan-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,99,255,.4);}
+.plan-card.featured .plan-btn{
+  background:linear-gradient(135deg,var(--yellow),var(--orange));
+  color:#1E1B4B;
+  box-shadow:0 6px 24px rgba(255,140,66,.5);
+}
+.plan-card.featured .plan-btn:hover{
+  box-shadow:0 12px 32px rgba(255,140,66,.6);
+}
+
+.plans-note{
+  text-align:center;margin-top:32px;
+  font-size:.85rem;font-weight:700;color:var(--muted);
+}
+.plans-note span{color:var(--purple);}
+
+/* ══════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════ */
+.faq-section{background:#fff;}
+.faq-section .section-title{
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.faq-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:16px;max-width:900px;margin:0 auto;
+}
+.faq-item{
+  background:#F3F0FF;border-radius:20px;
+  border:2px solid #EDE9FE;
+  overflow:hidden;
+}
+.faq-q{
+  padding:20px 22px;
+  font-family:'Fredoka One',cursive;font-size:1rem;
+  color:var(--dark);cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  user-select:none;
+  transition:background .2s;
+}
+.faq-q:hover{background:#EDE9FE;}
+.faq-q .faq-icon{
+  font-size:1.3rem;flex-shrink:0;
+  transition:transform .3s;
+}
+.faq-item.open .faq-q .faq-icon{transform:rotate(180deg);}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease;
+  font-size:.9rem;font-weight:700;color:var(--muted);
+  line-height:1.7;
+}
+.faq-item.open .faq-a{max-height:300px;}
+.faq-a-inner{padding:0 22px 20px;}
+
+/* ══════════════════════════════════════════
+   FINAL CTA
+══════════════════════════════════════════ */
+.cta-section{
+  background:linear-gradient(135deg,#1E1B4B 0%,#4C1D95 40%,#6C63FF 75%,#FF6584 100%);
+  text-align:center;padding:100px 24px;
+  position:relative;overflow:hidden;
+}
+.cta-section .bg-blob{background:rgba(255,255,255,1);}
+.cta-inner{position:relative;z-index:2;}
+.cta-section h2{
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(2rem,5vw,3.2rem);
+  color:#fff;margin-bottom:16px;line-height:1.2;
+}
+.cta-section p{
+  color:rgba(255,255,255,.8);font-size:1.05rem;font-weight:700;
+  margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto;
+}
+.cta-btns{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.footer{
+  background:#1E1B4B;color:rgba(255,255,255,.6);
+  text-align:center;padding:32px 24px;
+  font-size:.85rem;font-weight:700;
+}
+.footer a{color:var(--purple);text-decoration:none;}
+.footer a:hover{text-decoration:underline;}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;}
+  .hero-image-wrap{order:-1;}
+  .hero-chips{justify-content:center;}
+  .hero-btns{justify-content:center;}
+  .hero-stats{justify-content:center;}
+  .family-inner{grid-template-columns:1fr;text-align:center;}
+  .family-image-wrap{order:-1;}
+  .family-badge{right:8px;top:-12px;}
+  .platform-inner{grid-template-columns:1fr;}
+  .platform-image-wrap{order:-1;}
+  .plans-grid{grid-template-columns:1fr 1fr;row-gap:24px;}
+  .plan-card.featured{transform:scale(1);}
+  .plan-card.featured:hover{transform:translateY(-8px);}
+  .faq-grid{grid-template-columns:1fr;}
+}
+@media(max-width:560px){
+  .plans-grid{grid-template-columns:1fr;}
+  .plan-card.featured{transform:scale(1);}
+  .navbar{padding:10px 16px;}
+  .nav-cta{padding:9px 18px;font-size:.88rem;}
+}
+
+/* ══════════════════════════════════════════
+   PLATFORM MOCKUP (hero)
+══════════════════════════════════════════ */
+.platform-mockup{
+  background:#fff;border-radius:20px;
+  box-shadow:0 24px 80px rgba(0,0,0,.35);
+  border:3px solid rgba(255,255,255,.2);
+  overflow:hidden;width:100%;max-width:460px;
+  animation:heroFloat 4s ease-in-out infinite;
+}
+.mockup-bar{
+  background:#f0f0f0;padding:8px 14px;
+  display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid #e0e0e0;
+}
+.mockup-dot{width:11px;height:11px;border-radius:50%;display:inline-block;}
+.mockup-url{
+  background:#fff;border-radius:20px;flex:1;
+  padding:3px 12px;font-size:.72rem;font-weight:700;color:#888;
+  border:1px solid #ddd;text-align:center;
+}
+.mockup-topbar{
+  background:linear-gradient(135deg,#6C63FF,#FF6584);
+  padding:10px 14px;display:flex;align-items:center;justify-content:space-between;
+  color:#fff;
+}
+.mockup-nav-pills{display:flex;gap:6px;}
+.mockup-nav-pills span{
+  background:rgba(255,255,255,.22);border-radius:12px;
+  padding:3px 9px;font-size:.65rem;font-weight:800;
+}
+.mockup-hero-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+  padding:12px;background:#FFF8F0;
+}
+.mockup-letter-card{
+  background:#fff;border-radius:10px;padding:8px 4px;
+  text-align:center;border:2.5px solid;
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+}
+.mockup-letter-card .ml{
+  font-family:'Fredoka One',cursive;font-size:1.6rem;line-height:1;color:#333;
+}
+.mockup-letter-card .ms{
+  font-size:.52rem;font-weight:800;color:#888;line-height:1.2;text-align:center;
+}
+.mockup-quiz-bar{
+  background:#1E1B4B;padding:10px 14px;
+  font-size:.75rem;font-weight:800;color:rgba(255,255,255,.85);
+}
+.mockup-quiz-opts{display:flex;gap:6px;margin-top:6px;}
+.mq-opt{
+  border:none;border-radius:8px;padding:5px 10px;
+  background:rgba(255,255,255,.1);color:#fff;
+  font-size:.7rem;font-weight:800;cursor:default;
+}
+.mq-opt.correct{background:linear-gradient(135deg,#43E97B,#14B8A6);color:#fff;}
+.mockup-stats-row{
+  display:flex;justify-content:space-around;
+  padding:10px 14px;background:#F3F0FF;
+}
+.mstat{font-size:.72rem;font-weight:800;color:var(--dark);}
+
+/* ══════════════════════════════════════════
+   FAMILY ILLUSTRATION (CSS)
+══════════════════════════════════════════ */
+.family-illustration{
+  position:relative;width:100%;max-width:420px;
+  min-height:320px;display:flex;align-items:center;justify-content:center;
+  margin:0 auto;
+}
+.fi-bg-circle{
+  position:absolute;width:300px;height:300px;border-radius:50%;
+  background:linear-gradient(135deg,#EDE9FE,#FDF2F8);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:0;
+}
+.fi-scene{
+  position:relative;z-index:1;
+  display:flex;align-items:flex-end;gap:16px;
+  padding-bottom:16px;
+}
+.fi-person{display:flex;flex-direction:column;align-items:center;position:relative;}
+.fi-head{width:52px;height:52px;border-radius:50%;position:relative;z-index:1;}
+.fi-hair{width:56px;position:relative;z-index:2;}
+.fi-body{border-radius:12px 12px 0 0;}
+.fi-adult .fi-head{width:56px;height:56px;}
+.fi-adult .fi-body{width:64px;height:80px;}
+.fi-child .fi-head{width:44px;height:44px;}
+.fi-child .fi-body{width:50px;height:60px;}
+
+.fi-tablet{
+  background:#1E1B4B;border-radius:14px;padding:6px;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  width:130px;
+}
+.fi-tablet-screen{
+  background:#fff;border-radius:8px;padding:12px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  min-height:110px;justify-content:center;
+  font-family:'Fredoka One',cursive;
+}
+.fi-timer{
+  position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--yellow),var(--orange));
+  border-radius:30px;padding:6px 18px;
+  font-family:'Fredoka One',cursive;font-size:.85rem;color:#fff;
+  white-space:nowrap;box-shadow:0 4px 14px rgba(255,140,66,.4);
+}
+
+/* ══════════════════════════════════════════
+   DEVICES MOCKUP (platform section)
+══════════════════════════════════════════ */
+.devices-mockup{
+  position:relative;width:100%;max-width:440px;
+  min-height:300px;display:flex;align-items:flex-end;justify-content:center;gap:12px;
+  padding-bottom:20px;
+}
+/* Laptop */
+.device-laptop{display:flex;flex-direction:column;align-items:center;}
+.d-screen{
+  background:#1E1B4B;border-radius:8px 8px 0 0;
+  padding:4px;width:220px;border:3px solid #333;
+}
+.d-screen-inner{background:#fff;border-radius:4px;overflow:hidden;min-height:100px;}
+.d-base{
+  width:230px;height:8px;background:#2a2a3e;
+  border-radius:0 0 4px 4px;
+}
+.d-foot{width:80px;height:6px;background:#333;border-radius:0 0 4px 4px;margin:0 auto;}
+/* Phone */
+.device-phone{
+  background:#1E1B4B;border-radius:16px;padding:6px;
+  width:72px;border:3px solid #333;
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
+  align-self:center;
+}
+.d-phone-screen{background:#fff;border-radius:10px;overflow:hidden;min-height:120px;}
+/* Tablet */
+.device-tablet{
+  background:#1E1B4B;border-radius:12px;padding:6px;
+  width:150px;border:3px solid #333;
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
+  align-self:center;
+}
+.d-tablet-screen{background:#fff;border-radius:6px;overflow:hidden;min-height:100px;}
+
+/* ══════════════════════════════════════════
+   PDF CARDS GRID
+══════════════════════════════════════════ */
+.pdf-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  max-width:900px;margin:0 auto 48px;
+  text-align:left;
+}
+.pdf-card{
+  background:#fff;border-radius:20px;
+  border:2.5px solid #EDE9FE;
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(108,99,255,.08);
+  transition:transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+.pdf-card:hover{
+  transform:translateY(-8px) rotate(-1deg);
+  box-shadow:0 20px 50px rgba(108,99,255,.18);
+}
+.pdf-cover{
+  background:linear-gradient(160deg,var(--c1),var(--c2));
+  padding:24px 20px 20px;
+  position:relative;min-height:160px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;
+}
+.pdf-spine{
+  position:absolute;left:0;top:0;bottom:0;width:10px;
+  background:rgba(0,0,0,.15);
+}
+.pdf-logo{
+  position:absolute;top:14px;right:14px;
+  font-size:1.8rem;opacity:.6;
+}
+.pdf-cover-title{
+  font-family:'Fredoka One',cursive;
+  font-size:1.1rem;color:#fff;line-height:1.3;
+  position:relative;z-index:1;
+}
+.pdf-cover-sub{
+  font-size:.65rem;font-weight:800;color:rgba(255,255,255,.7);
+  margin-top:6px;text-transform:uppercase;letter-spacing:.06em;
+}
+.pdf-cover::after{
+  content:'';position:absolute;
+  bottom:-20px;right:-20px;
+  width:80px;height:80px;border-radius:50%;
+  background:rgba(255,255,255,.12);
+}
+.pdf-info{padding:16px;}
+.pdf-tag{
+  font-size:.7rem;font-weight:800;color:var(--purple);
+  background:#F3F0FF;border-radius:20px;
+  display:inline-block;padding:3px 10px;margin-bottom:8px;
+}
+.pdf-name{
+  font-family:'Fredoka One',cursive;font-size:.95rem;
+  color:var(--dark);margin-bottom:6px;
+}
+.pdf-desc{font-size:.8rem;font-weight:700;color:var(--muted);line-height:1.5;}
+
+/* Kit value bar */
+.kit-value-bar{
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  border-radius:24px;padding:24px 32px;
+  max-width:900px;margin:0 auto;
+  box-shadow:0 12px 40px rgba(108,99,255,.3);
+}
+.kvb-inner{
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:16px;
+}
+.kvb-item{
+  display:flex;align-items:center;gap:12px;
+  color:#fff;font-size:.88rem;font-weight:700;line-height:1.4;
+  text-align:left;
+}
+.kvb-icon{font-size:1.8rem;}
+.kvb-divider{
+  font-family:'Fredoka One',cursive;font-size:2rem;
+  color:rgba(255,255,255,.5);
+}
+.kvb-total{
+  background:rgba(255,255,255,.18);border-radius:16px;
+  padding:10px 18px;border:2px solid rgba(255,255,255,.3);
+}
+
+@media(max-width:700px){
+  .pdf-grid{grid-template-columns:1fr 1fr;}
+  .kvb-divider{display:none;}
+  .devices-mockup{flex-direction:column;align-items:center;}
+  .device-laptop{width:100%;max-width:260px;}
+  .d-screen{width:100%;}
+}
+@media(max-width:460px){
+  .pdf-grid{grid-template-columns:1fr;}
+  .platform-mockup{max-width:100%;}
+}
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════ */
+.fade-up{
+  opacity:0;transform:translateY(32px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.fade-up.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     NAVBAR
+════════════════════════════════ -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">
+    <span>🎓</span> EduKids
+  </a>
+  <div class="nav-buttons">
+    <a href="https://edukids.edsonroots2020.workers.dev/" class="nav-members" target="_blank" rel="noopener">
+      <span class="members-dot"></span>
+      <span>Área de Membros</span>
+    </a>
+    <a href="#planos" class="nav-cta">🚀 Quero Assinar Agora</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════
+     HERO
+════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="bg-blob hero-blob-1 bg-blob" style="width:420px;height:420px;background:var(--pink);top:-80px;right:-80px;animation-delay:0s;"></div>
+  <div class="bg-blob hero-blob-2 bg-blob" style="width:320px;height:320px;background:var(--green);bottom:-60px;left:-60px;animation-delay:2s;"></div>
+  <div class="bg-blob hero-blob-3 bg-blob" style="width:200px;height:200px;background:var(--yellow);top:25%;left:5%;animation-delay:4s;"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content fade-up">
+      <div class="hero-badge">🏆 Plataforma nº 1 em Alfabetização Infantil</div>
+      <h1>
+        Seu filho aprende a <span class="highlight">ler e escrever</span> de forma divertida!
+      </h1>
+      <p class="hero-sub">
+        Plataforma interativa com letras, sílabas, matemática, inglês e muito mais. 
+        Resultados reais em apenas <strong>15 minutos por dia</strong> — direto no celular, tablet ou computador!
+      </p>
+      <div class="hero-chips">
+        <div class="hero-chip">🔤 Fonética & Sílabas</div>
+        <div class="hero-chip">🔢 Matemática</div>
+        <div class="hero-chip">🇺🇸 Inglês</div>
+        <div class="hero-chip">🎯 Quiz Interativo</div>
+        <div class="hero-chip">📖 Bíblia</div>
+        <div class="hero-chip">🏆 Medalhas & XP</div>
+      </div>
+      <div class="hero-btns">
+        <a href="#planos" class="btn-primary">✨ Ver Planos e Assinar</a>
+        <a href="#kit" class="btn-secondary">📦 Ver o Kit Completo</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">+8</div>
+          <div class="hero-stat-lbl">Módulos de<br>Aprendizado</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">15min</div>
+          <div class="hero-stat-lbl">Por dia é<br>suficiente</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-lbl">Online &<br>Responsivo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap fade-up" style="transition-delay:.2s;">
+      <!-- Mockup visual da plataforma — substitua por <img src="capa-principal.png"> quando tiver o arquivo -->
+      <div class="platform-mockup">
+        <div class="mockup-bar">
+          <span class="mockup-dot" style="background:#FF5F57;"></span>
+          <span class="mockup-dot" style="background:#FEBC2E;"></span>
+          <span class="mockup-dot" style="background:#28C840;"></span>
+          <span class="mockup-url">🎓 EduKids — Plataforma</span>
+        </div>
+        <div class="mockup-topbar">
+          <span style="font-family:'Fredoka One',cursive;font-size:.9rem;">🎓 EduKids</span>
+          <div class="mockup-nav-pills">
+            <span>🔤 Letras</span><span>🔢 Números</span><span>🎯 Quiz</span>
+          </div>
+        </div>
+        <div class="mockup-hero-row">
+          <div class="mockup-letter-card" style="border-color:#FF6584;"><span class="ml">A</span><span class="ms">🍎 Abacaxi</span></div>
+          <div class="mockup-letter-card" style="border-color:#6C63FF;"><span class="ml">B</span><span class="ms">🦋 Borboleta</span></div>
+          <div class="mockup-letter-card" style="border-color:#43E97B;"><span class="ml">C</span><span class="ms">🐱 Cachorro</span></div>
+          <div class="mockup-letter-card" style="border-color:#FFD700;"><span class="ml">D</span><span class="ms">🦌 Dinossauro</span></div>
+        </div>
+        <div class="mockup-quiz-bar">
+          <span>🎯 Quiz: Qual sílaba forma BA?</span>
+          <div class="mockup-quiz-opts">
+            <button class="mq-opt correct">B+A ✓</button>
+            <button class="mq-opt">B+E</button>
+            <button class="mq-opt">B+O</button>
+          </div>
+        </div>
+        <div class="mockup-stats-row">
+          <div class="mstat">⭐ <strong>120 XP</strong></div>
+          <div class="mstat">🏅 <strong>3 Medalhas</strong></div>
+          <div class="mstat">🔥 <strong>7 dias</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     FAMILY CONNECTION
+════════════════════════════════ -->
+<section class="family-section">
+  <div class="section-wrap">
+    <div class="family-inner">
+
+      <div class="family-image-wrap fade-up">
+        <!-- Substitua por <img src="conexao-mae-filho.png"> quando tiver o arquivo -->
+        <div class="family-illustration">
+          <div class="fi-bg-circle"></div>
+          <div class="fi-scene">
+            <div class="fi-person fi-adult">
+              <div class="fi-head" style="background:#FBBF7C;"></div>
+              <div class="fi-hair" style="background:#7C3AED;height:28px;border-radius:20px 20px 0 0;margin-top:-20px;"></div>
+              <div class="fi-body" style="background:#EC4899;"></div>
+              <div class="fi-arms"></div>
+            </div>
+            <div class="fi-tablet">
+              <div class="fi-tablet-screen">
+                <span style="font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--purple);">A</span>
+                <span style="font-size:.7rem;font-weight:800;color:var(--muted);">🍎 Abacaxi</span>
+                <div style="background:var(--green);border-radius:6px;padding:3px 8px;color:#fff;font-size:.6rem;font-weight:800;margin-top:4px;">✓ Correto!</div>
+              </div>
+            </div>
+            <div class="fi-person fi-child">
+              <div class="fi-head" style="background:#FBBF7C;"></div>
+              <div class="fi-hair" style="background:#1E1B4B;height:20px;border-radius:14px 14px 0 0;margin-top:-16px;"></div>
+              <div class="fi-body" style="background:#6C63FF;"></div>
+            </div>
+          </div>
+          <div class="fi-timer">⏱️ <strong>15 min</strong> por dia!</div>
+        </div>
+        <div class="family-badge">
+          <span>⏱️</span>
+          Só 15 min por dia!
+        </div>
+      </div>
+
+      <div class="family-content fade-up" style="transition-delay:.15s;">
+        <h2>Aprenda junto com seu filho — e se conecte de verdade ❤️</h2>
+        <p>
+          Você não precisa ser professora para ensinar seu filho a ler. Com o EduKids, 
+          15 minutos por dia de qualidade são suficientes para gerar resultados incríveis 
+          na alfabetização — e ainda fortalecer o vínculo familiar.
+        </p>
+        <ul class="benefit-list">
+          <li>
+            <span class="bi">📅</span>
+            <span>Rotina simples: escolha um horário fixo e siga o plano de atividades dia a dia</span>
+          </li>
+          <li>
+            <span class="bi">🎮</span>
+            <span>Atividades gamificadas que mantêm a criança motivada e pedindo mais</span>
+          </li>
+          <li>
+            <span class="bi">📊</span>
+            <span>Acompanhe o progresso do seu filho com o painel de responsáveis</span>
+          </li>
+          <li>
+            <span class="bi">🏅</span>
+            <span>Sistema de medalhas e XP que recompensa cada conquista alcançada</span>
+          </li>
+          <li>
+            <span class="bi">❤️</span>
+            <span>Criado por mães e educadores que entendem o que funciona de verdade</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     PLATFORM DIGITAL
+════════════════════════════════ -->
+<section class="platform-section">
+  <div class="section-wrap">
+    <div class="platform-inner">
+
+      <div class="platform-content fade-up">
+        <h2>Uma plataforma que funciona em qualquer aparelho 📱💻</h2>
+        <p>
+          Não importa se você usa celular, tablet ou computador — o EduKids foi desenvolvido 
+          para funcionar perfeitamente em qualquer tela. Acesse de qualquer lugar, a qualquer hora!
+        </p>
+        <div class="platform-features">
+          <div class="pf-item">
+            <div class="pf-icon">📱</div>
+            <div class="pf-text">
+              <strong>100% Responsivo</strong>
+              <span>Funciona no celular, tablet e computador sem instalar nada</span>
+            </div>
+          </div>
+          <div class="pf-item">
+            <div class="pf-icon">🔊</div>
+            <div class="pf-text">
+              <strong>Áudio e Animações</strong>
+              <span>Cada letra e sílaba tem narração de áudio e feedbacks visuais divertidos</span>
+            </div>
+          </div>
+          <div class="pf-item">
+            <div class="pf-icon">🎯</div>
+            <div class="pf-text">
+              <strong>Quiz Inteligente</strong>
+              <span>Exercícios que se adaptam ao nível da criança para máximo aprendizado</span>
+            </div>
+          </div>
+          <div class="pf-item">
+            <div class="pf-icon">🔒</div>
+            <div class="pf-text">
+              <strong>Acesso Imediato e Seguro</strong>
+              <span>Login com senha e ambiente 100% seguro para crianças</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-image-wrap fade-up" style="transition-delay:.2s;">
+        <!-- Substitua por <img src="plataforma-telas.png"> quando tiver o arquivo -->
+        <div class="devices-mockup">
+          <!-- Laptop -->
+          <div class="device-laptop">
+            <div class="d-screen">
+              <div class="d-screen-inner">
+                <div style="font-family:'Fredoka One',cursive;font-size:.55rem;color:#fff;background:linear-gradient(135deg,#6C63FF,#FF6584);padding:4px 8px;border-radius:4px 4px 0 0;">🎓 EduKids</div>
+                <div style="display:flex;gap:4px;padding:4px;background:#F3F0FF;flex-wrap:wrap;">
+                  <span style="background:var(--purple);color:#fff;border-radius:4px;padding:2px 5px;font-size:.4rem;font-weight:800;">🔤 Letras</span>
+                  <span style="background:var(--pink);color:#fff;border-radius:4px;padding:2px 5px;font-size:.4rem;font-weight:800;">🔢 Números</span>
+                  <span style="background:var(--teal);color:#fff;border-radius:4px;padding:2px 5px;font-size:.4rem;font-weight:800;">🎯 Quiz</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;padding:4px;">
+                  <div style="background:#fff;border-radius:4px;padding:4px;text-align:center;font-size:.8rem;">🔤</div>
+                  <div style="background:#fff;border-radius:4px;padding:4px;text-align:center;font-size:.8rem;">🔢</div>
+                  <div style="background:#fff;border-radius:4px;padding:4px;text-align:center;font-size:.8rem;">🎯</div>
+                </div>
+              </div>
+            </div>
+            <div class="d-base"></div>
+            <div class="d-foot"></div>
+          </div>
+          <!-- Phone -->
+          <div class="device-phone">
+            <div class="d-phone-screen">
+              <div style="background:linear-gradient(135deg,#6C63FF,#FF6584);padding:5px;border-radius:6px 6px 0 0;font-family:'Fredoka One',cursive;font-size:.5rem;color:#fff;text-align:center;">Vogais</div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px;">
+                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--purple);line-height:1;">A</span>
+                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--pink);line-height:1;">E</span>
+                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--teal);line-height:1;">I</span>
+                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--orange);line-height:1;">O</span>
+                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--green);line-height:1;">U</span>
+              </div>
+            </div>
+          </div>
+          <!-- Tablet -->
+          <div class="device-tablet">
+            <div class="d-tablet-screen">
+              <div style="background:#1E1B4B;padding:4px 6px;font-family:'Fredoka One',cursive;font-size:.5rem;color:var(--yellow);border-radius:4px 4px 0 0;">🎯 Quiz de Sílabas</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:4px;">
+                <div style="background:var(--purple);border-radius:4px;padding:4px;font-family:'Fredoka One',cursive;font-size:.8rem;color:#fff;text-align:center;">BA</div>
+                <div style="background:var(--pink);border-radius:4px;padding:4px;font-family:'Fredoka One',cursive;font-size:.8rem;color:#fff;text-align:center;">BE</div>
+                <div style="background:var(--teal);border-radius:4px;padding:4px;font-family:'Fredoka One',cursive;font-size:.8rem;color:#fff;text-align:center;">BI</div>
+                <div style="background:var(--orange);border-radius:4px;padding:4px;font-family:'Fredoka One',cursive;font-size:.8rem;color:#fff;text-align:center;">BO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     KIT COMPLETO
+════════════════════════════════ -->
+<section class="kit-section" id="kit">
+  <div class="section-wrap" style="text-align:center;">
+    <h2 class="section-title fade-up">📦 Tudo que você recebe no EduKids</h2>
+    <p class="section-sub fade-up">Além da plataforma digital interativa, você recebe apostilas e PDFs exclusivos para imprimir e usar offline com seu filho!</p>
+
+    <!-- Grade de PDFs/Apostilas -->
+    <div class="pdf-grid fade-up">
+
+      <div class="pdf-card" style="--c1:#6C63FF;--c2:#9B5DE5;">
+        <div class="pdf-cover">
+          <div class="pdf-spine"></div>
+          <div class="pdf-logo">🎓</div>
+          <div class="pdf-cover-title">Apostila 1<br>O Caminho<br>das Letras</div>
+          <div class="pdf-cover-sub">EduKids</div>
+        </div>
+        <div class="pdf-info">
+          <div class="pdf-tag">📘 Apostila</div>
+          <div class="pdf-name">O Caminho das Letras</div>
+          <div class="pdf-desc">Aprenda todas as letras do alfabeto com exemplos e atividades</div>
+        </div>
+      </div>
+
+      <div class="pdf-card" style="--c1:#EC4899;--c2:#FF6584;">
+        <div class="pdf-cover">
+          <div class="pdf-spine"></div>
+          <div class="pdf-logo">🔤</div>
+          <div class="pdf-cover-title">Formando<br>Sílabas<br>com B</div>
+          <div class="pdf-cover-sub">EduKids</div>
+        </div>
+        <div class="pdf-info">
+          <div class="pdf-tag">📗 Apostila</div>
+          <div class="pdf-name">Sílabas com B</div>
+          <div class="pdf-desc">ba, be, bi, bo, bu — aprenda formando palavras divertidas</div>
+        </div>
+      </div>
+
+      <div class="pdf-card" style="--c1:#14B8A6;--c2:#43E97B;">
+        <div class="pdf-cover">
+          <div class="pdf-spine"></div>
+          <div class="pdf-logo">🔢</div>
+          <div class="pdf-cover-title">Matemática<br>Números<br>de 1 a 20</div>
+          <div class="pdf-cover-sub">EduKids</div>
+        </div>
+        <div class="pdf-info">
+          <div class="pdf-tag">📙 Apostila</div>
+          <div class="pdf-name">Matemática 1 a 20</div>
+          <div class="pdf-desc">Contar, somar e se divertir com os números do 1 ao 20</div>
+        </div>
+      </div>
+
+      <div class="pdf-card" style="--c1:#F59E0B;--c2:#FF8C42;">
+        <div class="pdf-cover">
+          <div class="pdf-spine"></div>
+          <div class="pdf-logo">🅰️</div>
+          <div class="pdf-cover-title">Vogais<br>Divertidas<br>PDF</div>
+          <div class="pdf-cover-sub">EduKids</div>
+        </div>
+        <div class="pdf-info">
+          <div class="pdf-tag">📄 PDF Atividades</div>
+          <div class="pdf-name">Vogais Divertidas</div>
+          <div class="pdf-desc">A, E, I, O, U em atividades coloridas para imprimir e brincar</div>
+        </div>
+      </div>
+
+      <div class="pdf-card" style="--c1:#7C3AED;--c2:#6C63FF;">
+        <div class="pdf-cover">
+          <div class="pdf-spine"></div>
+          <div class="pdf-logo">📖</div>
+          <div class="pdf-cover-title">Leitura<br>Fácil:<br>O Gato</div>
+          <div class="pdf-cover-sub">EduKids</div>
+        </div>
+        <div class="pdf-info">
+          <div class="pdf-tag">📄 PDF Leitura</div>
+          <div class="pdf-name">Leitura Fácil — O Gato Comilão</div>
+          <div class="pdf-desc">Primeira leitura completa com frases curtas e ilustrações</div>
+        </div>
+      </div>
+
+      <div class="pdf-card" style="--c1:#0EA5E9;--c2:#14B8A6;">
+        <div class="pdf-cover">
+          <div class="pdf-spine"></div>
+          <div class="pdf-logo">🌐</div>
+          <div class="pdf-cover-title">Plataforma<br>Digital<br>Interativa</div>
+          <div class="pdf-cover-sub">EduKids</div>
+        </div>
+        <div class="pdf-info">
+          <div class="pdf-tag">🌐 Plataforma Online</div>
+          <div class="pdf-name">App Digital Completo</div>
+          <div class="pdf-desc">Vogais, sílabas, matemática, inglês, quiz, bíblia, medalhas e XP</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Valor total percebido -->
+    <div class="kit-value-bar fade-up">
+      <div class="kvb-inner">
+        <div class="kvb-item">
+          <span class="kvb-icon">📚</span>
+          <span><strong>5 Apostilas & PDFs</strong><br>para imprimir</span>
+        </div>
+        <div class="kvb-divider">+</div>
+        <div class="kvb-item">
+          <span class="kvb-icon">🌐</span>
+          <span><strong>Plataforma Digital</strong><br>com 8+ módulos</span>
+        </div>
+        <div class="kvb-divider">+</div>
+        <div class="kvb-item">
+          <span class="kvb-icon">🏆</span>
+          <span><strong>Medalhas & XP</strong><br>certificados digitais</span>
+        </div>
+        <div class="kvb-divider">=</div>
+        <div class="kvb-item kvb-total">
+          <span class="kvb-icon">🎁</span>
+          <span><strong>Kit Completo</strong><br>desde R$29,90/mês</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     PLANOS
+════════════════════════════════ -->
+<section class="plans-section" id="planos">
+  <div class="section-wrap">
+    <h2 class="section-title fade-up">🎓 Escolha seu Plano</h2>
+    <p class="section-sub fade-up">Acesso completo à plataforma, apostilas e todo o conteúdo EduKids. Cancele quando quiser!</p>
+
+    <div class="plans-grid">
+
+      <!-- MENSAL -->
+      <div class="plan-card fade-up">
+        <div class="plan-icon">📅</div>
+        <div class="plan-name">Mensal</div>
+        <div class="plan-price-wrap">
+          <span class="plan-currency">R$</span>
+          <span class="plan-price">29,90</span>
+          <span class="plan-period">/mês</span>
+        </div>
+        <ul class="plan-features">
+          <li>Acesso completo à plataforma</li>
+          <li>Todos os PDFs e apostilas</li>
+          <li>Painel de responsáveis</li>
+          <li>Cancele a qualquer momento</li>
+        </ul>
+        <a href="https://pay.kiwify.com.br/LNdFgja" class="plan-btn">Assinar Mensal</a>
+      </div>
+
+      <!-- BIMESTRAL -->
+      <div class="plan-card fade-up" style="transition-delay:.08s;">
+        <div class="plan-icon">📆</div>
+        <div class="plan-name">Bimestral</div>
+        <div class="plan-price-wrap">
+          <span class="plan-currency">R$</span>
+          <span class="plan-price">56,80</span>
+          <span class="plan-period">a cada 2 meses</span>
+        </div>
+        <div class="plan-saving">Economize 5%</div>
+        <ul class="plan-features">
+          <li>Acesso completo à plataforma</li>
+          <li>Todos os PDFs e apostilas</li>
+          <li>Painel de responsáveis</li>
+          <li>Cancele a qualquer momento</li>
+        </ul>
+        <a href="https://pay.kiwify.com.br/yGEpq1Q" class="plan-btn">Assinar Bimestral</a>
+      </div>
+
+      <!-- ANUAL — DESTAQUE -->
+      <div class="plan-card featured fade-up" style="transition-delay:.16s;">
+        <div class="plan-ribbon">⭐ Mais Vendido</div>
+        <div class="plan-icon">🏆</div>
+        <div class="plan-name">Anual</div>
+        <div class="plan-price-wrap">
+          <span class="plan-currency">R$</span>
+          <span class="plan-price">287,00</span>
+          <span class="plan-period">por ano · R$23,91/mês</span>
+        </div>
+        <div class="plan-saving">Economize 20%</div>
+        <ul class="plan-features">
+          <li>Acesso completo à plataforma</li>
+          <li>Todos os PDFs e apostilas</li>
+          <li>Painel de responsáveis</li>
+          <li>Prioridade no suporte</li>
+          <li>Certificado de conclusão</li>
+          <li>Cancele a qualquer momento</li>
+        </ul>
+        <a href="https://pay.kiwify.com.br/arqkyGt" class="plan-btn">🚀 Assinar Anual</a>
+      </div>
+
+      <!-- TRIMESTRAL -->
+      <div class="plan-card fade-up" style="transition-delay:.24s;">
+        <div class="plan-icon">🗓️</div>
+        <div class="plan-name">Trimestral</div>
+        <div class="plan-price-wrap">
+          <span class="plan-currency">R$</span>
+          <span class="plan-price">82,20</span>
+          <span class="plan-period">a cada 3 meses</span>
+        </div>
+        <div class="plan-saving">Economize 8%</div>
+        <ul class="plan-features">
+          <li>Acesso completo à plataforma</li>
+          <li>Todos os PDFs e apostilas</li>
+          <li>Painel de responsáveis</li>
+          <li>Cancele a qualquer momento</li>
+        </ul>
+        <a href="https://pay.kiwify.com.br/f5INkNp" class="plan-btn">Assinar Trimestral</a>
+      </div>
+
+      <!-- SEMESTRAL -->
+      <div class="plan-card fade-up" style="transition-delay:.32s;">
+        <div class="plan-icon">📊</div>
+        <div class="plan-name">Semestral</div>
+        <div class="plan-price-wrap">
+          <span class="plan-currency">R$</span>
+          <span class="plan-price">155,40</span>
+          <span class="plan-period">a cada 6 meses</span>
+        </div>
+        <div class="plan-saving">Economize 13%</div>
+        <ul class="plan-features">
+          <li>Acesso completo à plataforma</li>
+          <li>Todos os PDFs e apostilas</li>
+          <li>Painel de responsáveis</li>
+          <li>Cancele a qualquer momento</li>
+        </ul>
+        <a href="https://pay.kiwify.com.br/JKvQLhj" class="plan-btn">Assinar Semestral</a>
+      </div>
+
+    </div>
+
+    <p class="plans-note fade-up">🔒 Pagamento seguro via <span>Kiwify</span> · Acesso liberado imediatamente após a confirmação · Cancele quando quiser</p>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     FAQ
+════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="section-wrap">
+    <h2 class="section-title fade-up">❓ Perguntas Frequentes</h2>
+    <p class="section-sub fade-up">Ficou com dúvida? Aqui estão as perguntas que mais recebemos!</p>
+
+    <div class="faq-grid">
+
+      <div class="faq-item fade-up" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          Como funciona o acesso após a compra?
+          <span class="faq-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Após confirmar o pagamento na Kiwify, você recebe automaticamente um e-mail com seus dados de acesso. O acesso à plataforma EduKids é <strong>imediato</strong> — em poucos minutos você e seu filho já estarão aprendendo!
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-up" onclick="toggleFaq(this)" style="transition-delay:.05s;">
+        <div class="faq-q">
+          Posso cancelar quando quiser?
+          <span class="faq-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Sim! Todas as assinaturas podem ser canceladas a qualquer momento direto pela Kiwify, sem burocracia. O acesso é mantido até o fim do período pago.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-up" onclick="toggleFaq(this)" style="transition-delay:.1s;">
+        <div class="faq-q">
+          Quantas crianças podem usar a plataforma?
+          <span class="faq-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            A assinatura é por conta familiar. Uma conta pode ser compartilhada entre os filhos da mesma família. O painel de responsáveis permite acompanhar o progresso de cada criança separadamente.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-up" onclick="toggleFaq(this)" style="transition-delay:.15s;">
+        <div class="faq-q">
+          Precisa instalar algum aplicativo?
+          <span class="faq-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Não! O EduKids funciona 100% no navegador — basta abrir o link no celular, tablet ou computador. Nada para baixar ou instalar.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-up" onclick="toggleFaq(this)" style="transition-delay:.2s;">
+        <div class="faq-q">
+          Para qual faixa etária é indicado?
+          <span class="faq-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            O EduKids é ideal para crianças de <strong>4 a 8 anos</strong> que estão em fase de alfabetização. O conteúdo é progressivo, começando pelas vogais e letras básicas até leitura de frases e pequenos textos.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-up" onclick="toggleFaq(this)" style="transition-delay:.25s;">
+        <div class="faq-q">
+          O que estão inclusos nos planos?
+          <span class="faq-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Todos os planos dão acesso completo à plataforma digital (letras, sílabas, matemática, inglês, quiz, bíblia, medalhas e certificados) mais os PDFs e apostilas para impressão. Não há conteúdo bloqueado.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-up" onclick="toggleFaq(this)" style="transition-delay:.3s;">
+        <div class="faq-q">
+          Qual a diferença entre os planos?
+          <span class="faq-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            O conteúdo é idêntico em todos os planos! A diferença é apenas na duração do período e no valor total: quanto maior o período, maior a economia. O Plano Anual oferece o melhor custo-benefício, economizando até 20%.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-up" onclick="toggleFaq(this)" style="transition-delay:.35s;">
+        <div class="faq-q">
+          Tem garantia?
+          <span class="faq-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Sim! Oferecemos garantia de 7 dias conforme o Código de Defesa do Consumidor. Se por qualquer motivo você não ficar satisfeita, basta solicitar o reembolso dentro desse prazo e devolveremos 100% do valor pago.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     FINAL CTA
+════════════════════════════════ -->
+<section class="cta-section">
+  <div class="bg-blob" style="width:350px;height:350px;background:var(--pink);top:-80px;right:-80px;animation-delay:0s;"></div>
+  <div class="bg-blob" style="width:250px;height:250px;background:var(--green);bottom:-60px;left:-60px;animation-delay:2s;"></div>
+  <div class="cta-inner">
+    <h2 class="fade-up">Comece hoje mesmo! 🚀<br>Seu filho merece aprender com alegria.</h2>
+    <p class="fade-up">Acesso imediato, cancele quando quiser. Mais de 8 módulos interativos esperando por vocês!</p>
+    <div class="cta-btns fade-up">
+      <a href="#planos" class="btn-primary" style="font-size:1.15rem;padding:18px 44px;">✨ Assinar Agora</a>
+      <a href="#faq" class="btn-secondary">Ainda tenho dúvidas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer class="footer">
+  <p>© 2025 EduKids — Plataforma de Alfabetização Infantil. Todos os direitos reservados.</p>
+  <p style="margin-top:8px;">Pagamento processado com segurança pela <a href="#">Kiwify</a></p>
+</footer>
+
+<script>
+/* ══════════════════════════════
+   SCROLL ANIMATIONS
+════════════════════════════════ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+/* ══════════════════════════════
+   FAQ TOGGLE
+════════════════════════════════ */
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  // Toggle clicked
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ══════════════════════════════
+   SMOOTH SCROLL FOR NAV LINKS
+════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
