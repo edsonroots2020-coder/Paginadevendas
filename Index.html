@@ -599,255 +599,6 @@ img{max-width:100%;height:auto;display:block;}
 }
 
 /* ══════════════════════════════════════════
-   PLATFORM MOCKUP (hero)
-══════════════════════════════════════════ */
-.platform-mockup{
-  background:#fff;border-radius:20px;
-  box-shadow:0 24px 80px rgba(0,0,0,.35);
-  border:3px solid rgba(255,255,255,.2);
-  overflow:hidden;width:100%;max-width:460px;
-  animation:heroFloat 4s ease-in-out infinite;
-}
-.mockup-bar{
-  background:#f0f0f0;padding:8px 14px;
-  display:flex;align-items:center;gap:8px;
-  border-bottom:1px solid #e0e0e0;
-}
-.mockup-dot{width:11px;height:11px;border-radius:50%;display:inline-block;}
-.mockup-url{
-  background:#fff;border-radius:20px;flex:1;
-  padding:3px 12px;font-size:.72rem;font-weight:700;color:#888;
-  border:1px solid #ddd;text-align:center;
-}
-.mockup-topbar{
-  background:linear-gradient(135deg,#6C63FF,#FF6584);
-  padding:10px 14px;display:flex;align-items:center;justify-content:space-between;
-  color:#fff;
-}
-.mockup-nav-pills{display:flex;gap:6px;}
-.mockup-nav-pills span{
-  background:rgba(255,255,255,.22);border-radius:12px;
-  padding:3px 9px;font-size:.65rem;font-weight:800;
-}
-.mockup-hero-row{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
-  padding:12px;background:#FFF8F0;
-}
-.mockup-letter-card{
-  background:#fff;border-radius:10px;padding:8px 4px;
-  text-align:center;border:2.5px solid;
-  display:flex;flex-direction:column;align-items:center;gap:3px;
-}
-.mockup-letter-card .ml{
-  font-family:'Fredoka One',cursive;font-size:1.6rem;line-height:1;color:#333;
-}
-.mockup-letter-card .ms{
-  font-size:.52rem;font-weight:800;color:#888;line-height:1.2;text-align:center;
-}
-.mockup-quiz-bar{
-  background:#1E1B4B;padding:10px 14px;
-  font-size:.75rem;font-weight:800;color:rgba(255,255,255,.85);
-}
-.mockup-quiz-opts{display:flex;gap:6px;margin-top:6px;}
-.mq-opt{
-  border:none;border-radius:8px;padding:5px 10px;
-  background:rgba(255,255,255,.1);color:#fff;
-  font-size:.7rem;font-weight:800;cursor:default;
-}
-.mq-opt.correct{background:linear-gradient(135deg,#43E97B,#14B8A6);color:#fff;}
-.mockup-stats-row{
-  display:flex;justify-content:space-around;
-  padding:10px 14px;background:#F3F0FF;
-}
-.mstat{font-size:.72rem;font-weight:800;color:var(--dark);}
-
-/* ══════════════════════════════════════════
-   FAMILY ILLUSTRATION (CSS)
-══════════════════════════════════════════ */
-.family-illustration{
-  position:relative;width:100%;max-width:420px;
-  min-height:320px;display:flex;align-items:center;justify-content:center;
-  margin:0 auto;
-}
-.fi-bg-circle{
-  position:absolute;width:300px;height:300px;border-radius:50%;
-  background:linear-gradient(135deg,#EDE9FE,#FDF2F8);
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  z-index:0;
-}
-.fi-scene{
-  position:relative;z-index:1;
-  display:flex;align-items:flex-end;gap:16px;
-  padding-bottom:16px;
-}
-.fi-person{display:flex;flex-direction:column;align-items:center;position:relative;}
-.fi-head{width:52px;height:52px;border-radius:50%;position:relative;z-index:1;}
-.fi-hair{width:56px;position:relative;z-index:2;}
-.fi-body{border-radius:12px 12px 0 0;}
-.fi-adult .fi-head{width:56px;height:56px;}
-.fi-adult .fi-body{width:64px;height:80px;}
-.fi-child .fi-head{width:44px;height:44px;}
-.fi-child .fi-body{width:50px;height:60px;}
-
-.fi-tablet{
-  background:#1E1B4B;border-radius:14px;padding:6px;
-  box-shadow:0 8px 24px rgba(0,0,0,.25);
-  width:130px;
-}
-.fi-tablet-screen{
-  background:#fff;border-radius:8px;padding:12px;
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  min-height:110px;justify-content:center;
-  font-family:'Fredoka One',cursive;
-}
-.fi-timer{
-  position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);
-  background:linear-gradient(135deg,var(--yellow),var(--orange));
-  border-radius:30px;padding:6px 18px;
-  font-family:'Fredoka One',cursive;font-size:.85rem;color:#fff;
-  white-space:nowrap;box-shadow:0 4px 14px rgba(255,140,66,.4);
-}
-
-/* ══════════════════════════════════════════
-   DEVICES MOCKUP (platform section)
-══════════════════════════════════════════ */
-.devices-mockup{
-  position:relative;width:100%;max-width:440px;
-  min-height:300px;display:flex;align-items:flex-end;justify-content:center;gap:12px;
-  padding-bottom:20px;
-}
-/* Laptop */
-.device-laptop{display:flex;flex-direction:column;align-items:center;}
-.d-screen{
-  background:#1E1B4B;border-radius:8px 8px 0 0;
-  padding:4px;width:220px;border:3px solid #333;
-}
-.d-screen-inner{background:#fff;border-radius:4px;overflow:hidden;min-height:100px;}
-.d-base{
-  width:230px;height:8px;background:#2a2a3e;
-  border-radius:0 0 4px 4px;
-}
-.d-foot{width:80px;height:6px;background:#333;border-radius:0 0 4px 4px;margin:0 auto;}
-/* Phone */
-.device-phone{
-  background:#1E1B4B;border-radius:16px;padding:6px;
-  width:72px;border:3px solid #333;
-  box-shadow:0 12px 40px rgba(0,0,0,.4);
-  align-self:center;
-}
-.d-phone-screen{background:#fff;border-radius:10px;overflow:hidden;min-height:120px;}
-/* Tablet */
-.device-tablet{
-  background:#1E1B4B;border-radius:12px;padding:6px;
-  width:150px;border:3px solid #333;
-  box-shadow:0 12px 40px rgba(0,0,0,.4);
-  align-self:center;
-}
-.d-tablet-screen{background:#fff;border-radius:6px;overflow:hidden;min-height:100px;}
-
-/* ══════════════════════════════════════════
-   PDF CARDS GRID
-══════════════════════════════════════════ */
-.pdf-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  max-width:900px;margin:0 auto 48px;
-  text-align:left;
-}
-.pdf-card{
-  background:#fff;border-radius:20px;
-  border:2.5px solid #EDE9FE;
-  overflow:hidden;
-  box-shadow:0 6px 20px rgba(108,99,255,.08);
-  transition:transform .25s,box-shadow .25s;
-  display:flex;flex-direction:column;
-}
-.pdf-card:hover{
-  transform:translateY(-8px) rotate(-1deg);
-  box-shadow:0 20px 50px rgba(108,99,255,.18);
-}
-.pdf-cover{
-  background:linear-gradient(160deg,var(--c1),var(--c2));
-  padding:24px 20px 20px;
-  position:relative;min-height:160px;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  overflow:hidden;
-}
-.pdf-spine{
-  position:absolute;left:0;top:0;bottom:0;width:10px;
-  background:rgba(0,0,0,.15);
-}
-.pdf-logo{
-  position:absolute;top:14px;right:14px;
-  font-size:1.8rem;opacity:.6;
-}
-.pdf-cover-title{
-  font-family:'Fredoka One',cursive;
-  font-size:1.1rem;color:#fff;line-height:1.3;
-  position:relative;z-index:1;
-}
-.pdf-cover-sub{
-  font-size:.65rem;font-weight:800;color:rgba(255,255,255,.7);
-  margin-top:6px;text-transform:uppercase;letter-spacing:.06em;
-}
-.pdf-cover::after{
-  content:'';position:absolute;
-  bottom:-20px;right:-20px;
-  width:80px;height:80px;border-radius:50%;
-  background:rgba(255,255,255,.12);
-}
-.pdf-info{padding:16px;}
-.pdf-tag{
-  font-size:.7rem;font-weight:800;color:var(--purple);
-  background:#F3F0FF;border-radius:20px;
-  display:inline-block;padding:3px 10px;margin-bottom:8px;
-}
-.pdf-name{
-  font-family:'Fredoka One',cursive;font-size:.95rem;
-  color:var(--dark);margin-bottom:6px;
-}
-.pdf-desc{font-size:.8rem;font-weight:700;color:var(--muted);line-height:1.5;}
-
-/* Kit value bar */
-.kit-value-bar{
-  background:linear-gradient(135deg,var(--purple),var(--pink));
-  border-radius:24px;padding:24px 32px;
-  max-width:900px;margin:0 auto;
-  box-shadow:0 12px 40px rgba(108,99,255,.3);
-}
-.kvb-inner{
-  display:flex;align-items:center;justify-content:center;
-  flex-wrap:wrap;gap:16px;
-}
-.kvb-item{
-  display:flex;align-items:center;gap:12px;
-  color:#fff;font-size:.88rem;font-weight:700;line-height:1.4;
-  text-align:left;
-}
-.kvb-icon{font-size:1.8rem;}
-.kvb-divider{
-  font-family:'Fredoka One',cursive;font-size:2rem;
-  color:rgba(255,255,255,.5);
-}
-.kvb-total{
-  background:rgba(255,255,255,.18);border-radius:16px;
-  padding:10px 18px;border:2px solid rgba(255,255,255,.3);
-}
-
-@media(max-width:700px){
-  .pdf-grid{grid-template-columns:1fr 1fr;}
-  .kvb-divider{display:none;}
-  .devices-mockup{flex-direction:column;align-items:center;}
-  .device-laptop{width:100%;max-width:260px;}
-  .d-screen{width:100%;}
-}
-@media(max-width:460px){
-  .pdf-grid{grid-template-columns:1fr;}
-  .platform-mockup{max-width:100%;}
-}
-
-/* ══════════════════════════════════════════
    ANIMATIONS
 ══════════════════════════════════════════ */
 .fade-up{
@@ -863,7 +614,7 @@ img{max-width:100%;height:auto;display:block;}
      NAVBAR
 ════════════════════════════════ -->
 <nav class="navbar">
-  <a href="#" class="nav-logo">
+  <a href="https://edukids.edsonroots2020.workers.dev/" class="nav-logo">
     <span>🎓</span> EduKids
   </a>
   <div class="nav-buttons">
@@ -921,41 +672,11 @@ img{max-width:100%;height:auto;display:block;}
       </div>
     </div>
 
+    <!-- IMAGEM HERO - CAPA PRINCIPAL (PNG) -->
     <div class="hero-image-wrap fade-up" style="transition-delay:.2s;">
-      <!-- Mockup visual da plataforma — substitua por <img src="capa-principal.png"> quando tiver o arquivo -->
-      <div class="platform-mockup">
-        <div class="mockup-bar">
-          <span class="mockup-dot" style="background:#FF5F57;"></span>
-          <span class="mockup-dot" style="background:#FEBC2E;"></span>
-          <span class="mockup-dot" style="background:#28C840;"></span>
-          <span class="mockup-url">🎓 EduKids — Plataforma</span>
-        </div>
-        <div class="mockup-topbar">
-          <span style="font-family:'Fredoka One',cursive;font-size:.9rem;">🎓 EduKids</span>
-          <div class="mockup-nav-pills">
-            <span>🔤 Letras</span><span>🔢 Números</span><span>🎯 Quiz</span>
-          </div>
-        </div>
-        <div class="mockup-hero-row">
-          <div class="mockup-letter-card" style="border-color:#FF6584;"><span class="ml">A</span><span class="ms">🍎 Abacaxi</span></div>
-          <div class="mockup-letter-card" style="border-color:#6C63FF;"><span class="ml">B</span><span class="ms">🦋 Borboleta</span></div>
-          <div class="mockup-letter-card" style="border-color:#43E97B;"><span class="ml">C</span><span class="ms">🐱 Cachorro</span></div>
-          <div class="mockup-letter-card" style="border-color:#FFD700;"><span class="ml">D</span><span class="ms">🦌 Dinossauro</span></div>
-        </div>
-        <div class="mockup-quiz-bar">
-          <span>🎯 Quiz: Qual sílaba forma BA?</span>
-          <div class="mockup-quiz-opts">
-            <button class="mq-opt correct">B+A ✓</button>
-            <button class="mq-opt">B+E</button>
-            <button class="mq-opt">B+O</button>
-          </div>
-        </div>
-        <div class="mockup-stats-row">
-          <div class="mstat">⭐ <strong>120 XP</strong></div>
-          <div class="mstat">🏅 <strong>3 Medalhas</strong></div>
-          <div class="mstat">🔥 <strong>7 dias</strong></div>
-        </div>
-      </div>
+      <img src="https://raw.githubusercontent.com/edsonroots2020-coder/Paginadevendas/refs/heads/main/capa-principal.png" 
+           alt="EduKids - Alfabetização Infantil" 
+           style="width:100%; max-width:500px; border-radius:28px; box-shadow:0 30px 80px rgba(0,0,0,0.4); border:4px solid rgba(255,255,255,0.2); animation:heroFloat 4s ease-in-out infinite;">
     </div>
   </div>
 </section>
@@ -967,32 +688,11 @@ img{max-width:100%;height:auto;display:block;}
   <div class="section-wrap">
     <div class="family-inner">
 
+      <!-- IMAGEM FAMÍLIA - CONEXAO MAE FILHO (PNG) -->
       <div class="family-image-wrap fade-up">
-        <!-- Substitua por <img src="conexao-mae-filho.png"> quando tiver o arquivo -->
-        <div class="family-illustration">
-          <div class="fi-bg-circle"></div>
-          <div class="fi-scene">
-            <div class="fi-person fi-adult">
-              <div class="fi-head" style="background:#FBBF7C;"></div>
-              <div class="fi-hair" style="background:#7C3AED;height:28px;border-radius:20px 20px 0 0;margin-top:-20px;"></div>
-              <div class="fi-body" style="background:#EC4899;"></div>
-              <div class="fi-arms"></div>
-            </div>
-            <div class="fi-tablet">
-              <div class="fi-tablet-screen">
-                <span style="font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--purple);">A</span>
-                <span style="font-size:.7rem;font-weight:800;color:var(--muted);">🍎 Abacaxi</span>
-                <div style="background:var(--green);border-radius:6px;padding:3px 8px;color:#fff;font-size:.6rem;font-weight:800;margin-top:4px;">✓ Correto!</div>
-              </div>
-            </div>
-            <div class="fi-person fi-child">
-              <div class="fi-head" style="background:#FBBF7C;"></div>
-              <div class="fi-hair" style="background:#1E1B4B;height:20px;border-radius:14px 14px 0 0;margin-top:-16px;"></div>
-              <div class="fi-body" style="background:#6C63FF;"></div>
-            </div>
-          </div>
-          <div class="fi-timer">⏱️ <strong>15 min</strong> por dia!</div>
-        </div>
+        <img src="https://raw.githubusercontent.com/edsonroots2020-coder/Paginadevendas/refs/heads/main/conexao-mae-filho.png" 
+             alt="Mãe e filho aprendendo juntos" 
+             style="width:100%; border-radius:28px; box-shadow:0 16px 60px rgba(108,99,255,0.2);">
         <div class="family-badge">
           <span>⏱️</span>
           Só 15 min por dia!
@@ -1013,7 +713,7 @@ img{max-width:100%;height:auto;display:block;}
           </li>
           <li>
             <span class="bi">🎮</span>
-            <span>Atividades gamificadas que mantêm a criança motivada e pedindo mais</span>
+            <span>Quiz interativo que mantém a criança motivada e pedindo mais</span>
           </li>
           <li>
             <span class="bi">📊</span>
@@ -1079,55 +779,11 @@ img{max-width:100%;height:auto;display:block;}
         </div>
       </div>
 
+      <!-- IMAGEM PLATAFORMA - TELAS (PNG) -->
       <div class="platform-image-wrap fade-up" style="transition-delay:.2s;">
-        <!-- Substitua por <img src="plataforma-telas.png"> quando tiver o arquivo -->
-        <div class="devices-mockup">
-          <!-- Laptop -->
-          <div class="device-laptop">
-            <div class="d-screen">
-              <div class="d-screen-inner">
-                <div style="font-family:'Fredoka One',cursive;font-size:.55rem;color:#fff;background:linear-gradient(135deg,#6C63FF,#FF6584);padding:4px 8px;border-radius:4px 4px 0 0;">🎓 EduKids</div>
-                <div style="display:flex;gap:4px;padding:4px;background:#F3F0FF;flex-wrap:wrap;">
-                  <span style="background:var(--purple);color:#fff;border-radius:4px;padding:2px 5px;font-size:.4rem;font-weight:800;">🔤 Letras</span>
-                  <span style="background:var(--pink);color:#fff;border-radius:4px;padding:2px 5px;font-size:.4rem;font-weight:800;">🔢 Números</span>
-                  <span style="background:var(--teal);color:#fff;border-radius:4px;padding:2px 5px;font-size:.4rem;font-weight:800;">🎯 Quiz</span>
-                </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;padding:4px;">
-                  <div style="background:#fff;border-radius:4px;padding:4px;text-align:center;font-size:.8rem;">🔤</div>
-                  <div style="background:#fff;border-radius:4px;padding:4px;text-align:center;font-size:.8rem;">🔢</div>
-                  <div style="background:#fff;border-radius:4px;padding:4px;text-align:center;font-size:.8rem;">🎯</div>
-                </div>
-              </div>
-            </div>
-            <div class="d-base"></div>
-            <div class="d-foot"></div>
-          </div>
-          <!-- Phone -->
-          <div class="device-phone">
-            <div class="d-phone-screen">
-              <div style="background:linear-gradient(135deg,#6C63FF,#FF6584);padding:5px;border-radius:6px 6px 0 0;font-family:'Fredoka One',cursive;font-size:.5rem;color:#fff;text-align:center;">Vogais</div>
-              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px;">
-                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--purple);line-height:1;">A</span>
-                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--pink);line-height:1;">E</span>
-                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--teal);line-height:1;">I</span>
-                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--orange);line-height:1;">O</span>
-                <span style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--green);line-height:1;">U</span>
-              </div>
-            </div>
-          </div>
-          <!-- Tablet -->
-          <div class="device-tablet">
-            <div class="d-tablet-screen">
-              <div style="background:#1E1B4B;padding:4px 6px;font-family:'Fredoka One',cursive;font-size:.5rem;color:var(--yellow);border-radius:4px 4px 0 0;">🎯 Quiz de Sílabas</div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:4px;">
-                <div style="background:var(--purple);border-radius:4px;padding:4px;font-family:'Fredoka One',cursive;font-size:.8rem;color:#fff;text-align:center;">BA</div>
-                <div style="background:var(--pink);border-radius:4px;padding:4px;font-family:'Fredoka One',cursive;font-size:.8rem;color:#fff;text-align:center;">BE</div>
-                <div style="background:var(--teal);border-radius:4px;padding:4px;font-family:'Fredoka One',cursive;font-size:.8rem;color:#fff;text-align:center;">BI</div>
-                <div style="background:var(--orange);border-radius:4px;padding:4px;font-family:'Fredoka One',cursive;font-size:.8rem;color:#fff;text-align:center;">BO</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <img src="https://raw.githubusercontent.com/edsonroots2020-coder/Paginadevendas/refs/heads/main/plataforma-telas.png" 
+             alt="Plataforma EduKids" 
+             style="width:100%; border-radius:24px; box-shadow:0 24px 80px rgba(0,0,0,0.5); border:3px solid rgba(255,255,255,0.15);">
       </div>
 
     </div>
@@ -1140,120 +796,52 @@ img{max-width:100%;height:auto;display:block;}
 <section class="kit-section" id="kit">
   <div class="section-wrap" style="text-align:center;">
     <h2 class="section-title fade-up">📦 Tudo que você recebe no EduKids</h2>
-    <p class="section-sub fade-up">Além da plataforma digital interativa, você recebe apostilas e PDFs exclusivos para imprimir e usar offline com seu filho!</p>
+    <p class="section-sub fade-up">Plataforma digital interativa + apostilas e PDFs para imprimir — tudo atualizado todo mês para seu filho sempre ter conteúdo novo!</p>
 
-    <!-- Grade de PDFs/Apostilas -->
-    <div class="pdf-grid fade-up">
-
-      <div class="pdf-card" style="--c1:#6C63FF;--c2:#9B5DE5;">
-        <div class="pdf-cover">
-          <div class="pdf-spine"></div>
-          <div class="pdf-logo">🎓</div>
-          <div class="pdf-cover-title">Apostila 1<br>O Caminho<br>das Letras</div>
-          <div class="pdf-cover-sub">EduKids</div>
-        </div>
-        <div class="pdf-info">
-          <div class="pdf-tag">📘 Apostila</div>
-          <div class="pdf-name">O Caminho das Letras</div>
-          <div class="pdf-desc">Aprenda todas as letras do alfabeto com exemplos e atividades</div>
-        </div>
-      </div>
-
-      <div class="pdf-card" style="--c1:#EC4899;--c2:#FF6584;">
-        <div class="pdf-cover">
-          <div class="pdf-spine"></div>
-          <div class="pdf-logo">🔤</div>
-          <div class="pdf-cover-title">Formando<br>Sílabas<br>com B</div>
-          <div class="pdf-cover-sub">EduKids</div>
-        </div>
-        <div class="pdf-info">
-          <div class="pdf-tag">📗 Apostila</div>
-          <div class="pdf-name">Sílabas com B</div>
-          <div class="pdf-desc">ba, be, bi, bo, bu — aprenda formando palavras divertidas</div>
-        </div>
-      </div>
-
-      <div class="pdf-card" style="--c1:#14B8A6;--c2:#43E97B;">
-        <div class="pdf-cover">
-          <div class="pdf-spine"></div>
-          <div class="pdf-logo">🔢</div>
-          <div class="pdf-cover-title">Matemática<br>Números<br>de 1 a 20</div>
-          <div class="pdf-cover-sub">EduKids</div>
-        </div>
-        <div class="pdf-info">
-          <div class="pdf-tag">📙 Apostila</div>
-          <div class="pdf-name">Matemática 1 a 20</div>
-          <div class="pdf-desc">Contar, somar e se divertir com os números do 1 ao 20</div>
-        </div>
-      </div>
-
-      <div class="pdf-card" style="--c1:#F59E0B;--c2:#FF8C42;">
-        <div class="pdf-cover">
-          <div class="pdf-spine"></div>
-          <div class="pdf-logo">🅰️</div>
-          <div class="pdf-cover-title">Vogais<br>Divertidas<br>PDF</div>
-          <div class="pdf-cover-sub">EduKids</div>
-        </div>
-        <div class="pdf-info">
-          <div class="pdf-tag">📄 PDF Atividades</div>
-          <div class="pdf-name">Vogais Divertidas</div>
-          <div class="pdf-desc">A, E, I, O, U em atividades coloridas para imprimir e brincar</div>
-        </div>
-      </div>
-
-      <div class="pdf-card" style="--c1:#7C3AED;--c2:#6C63FF;">
-        <div class="pdf-cover">
-          <div class="pdf-spine"></div>
-          <div class="pdf-logo">📖</div>
-          <div class="pdf-cover-title">Leitura<br>Fácil:<br>O Gato</div>
-          <div class="pdf-cover-sub">EduKids</div>
-        </div>
-        <div class="pdf-info">
-          <div class="pdf-tag">📄 PDF Leitura</div>
-          <div class="pdf-name">Leitura Fácil — O Gato Comilão</div>
-          <div class="pdf-desc">Primeira leitura completa com frases curtas e ilustrações</div>
-        </div>
-      </div>
-
-      <div class="pdf-card" style="--c1:#0EA5E9;--c2:#14B8A6;">
-        <div class="pdf-cover">
-          <div class="pdf-spine"></div>
-          <div class="pdf-logo">🌐</div>
-          <div class="pdf-cover-title">Plataforma<br>Digital<br>Interativa</div>
-          <div class="pdf-cover-sub">EduKids</div>
-        </div>
-        <div class="pdf-info">
-          <div class="pdf-tag">🌐 Plataforma Online</div>
-          <div class="pdf-name">App Digital Completo</div>
-          <div class="pdf-desc">Vogais, sílabas, matemática, inglês, quiz, bíblia, medalhas e XP</div>
-        </div>
-      </div>
-
+    <!-- Chips de conteúdo -->
+    <div class="kit-items fade-up">
+      <div class="kit-item"><span>🌐</span> Plataforma Digital Interativa</div>
+      <div class="kit-item"><span>🔤</span> Letras & Sílabas</div>
+      <div class="kit-item"><span>🔢</span> Matemática</div>
+      <div class="kit-item"><span>🇺🇸</span> Inglês Infantil</div>
+      <div class="kit-item"><span>🎯</span> Quiz Interativo</div>
+      <div class="kit-item"><span>📖</span> Bíblia Infantil</div>
+      <div class="kit-item"><span>🏅</span> Medalhas & XP</div>
+      <div class="kit-item"><span>📄</span> PDFs & Apostilas</div>
+      <div class="kit-item"><span>🔄</span> Conteúdo Atualizado Mensalmente</div>
+      <div class="kit-item"><span>👨‍👩‍👧</span> Painel de Responsáveis</div>
     </div>
 
     <!-- Valor total percebido -->
     <div class="kit-value-bar fade-up">
       <div class="kvb-inner">
         <div class="kvb-item">
-          <span class="kvb-icon">📚</span>
-          <span><strong>5 Apostilas & PDFs</strong><br>para imprimir</span>
-        </div>
-        <div class="kvb-divider">+</div>
-        <div class="kvb-item">
           <span class="kvb-icon">🌐</span>
-          <span><strong>Plataforma Digital</strong><br>com 8+ módulos</span>
+          <span><strong>Plataforma Digital</strong><br>com quiz e módulos</span>
         </div>
         <div class="kvb-divider">+</div>
         <div class="kvb-item">
-          <span class="kvb-icon">🏆</span>
-          <span><strong>Medalhas & XP</strong><br>certificados digitais</span>
+          <span class="kvb-icon">📄</span>
+          <span><strong>PDFs & Apostilas</strong><br>para imprimir</span>
+        </div>
+        <div class="kvb-divider">+</div>
+        <div class="kvb-item">
+          <span class="kvb-icon">🔄</span>
+          <span><strong>Novidades todo mês</strong><br>para app e PDFs</span>
         </div>
         <div class="kvb-divider">=</div>
         <div class="kvb-item kvb-total">
           <span class="kvb-icon">🎁</span>
-          <span><strong>Kit Completo</strong><br>desde R$29,90/mês</span>
+          <span><strong>Tudo Incluso</strong><br>desde R$19,90/mês</span>
         </div>
       </div>
+    </div>
+
+    <!-- IMAGEM KIT - OFERTA (PNG) -->
+    <div class="kit-image-wrap fade-up" style="margin-top: 40px;">
+      <img src="https://raw.githubusercontent.com/edsonroots2020-coder/Paginadevendas/refs/heads/main/kit-oferta.png" 
+           alt="Kit completo EduKids" 
+           style="width:100%; border-radius:28px; box-shadow:0 24px 80px rgba(108,99,255,0.22);">
     </div>
 
   </div>
@@ -1265,7 +853,7 @@ img{max-width:100%;height:auto;display:block;}
 <section class="plans-section" id="planos">
   <div class="section-wrap">
     <h2 class="section-title fade-up">🎓 Escolha seu Plano</h2>
-    <p class="section-sub fade-up">Acesso completo à plataforma, apostilas e todo o conteúdo EduKids. Cancele quando quiser!</p>
+    <p class="section-sub fade-up">Acesso completo à plataforma, PDFs e todo o conteúdo EduKids — atualizado mensalmente. Cancele quando quiser!</p>
 
     <div class="plans-grid">
 
@@ -1275,16 +863,17 @@ img{max-width:100%;height:auto;display:block;}
         <div class="plan-name">Mensal</div>
         <div class="plan-price-wrap">
           <span class="plan-currency">R$</span>
-          <span class="plan-price">29,90</span>
+          <span class="plan-price">19,90</span>
           <span class="plan-period">/mês</span>
         </div>
         <ul class="plan-features">
           <li>Acesso completo à plataforma</li>
-          <li>Todos os PDFs e apostilas</li>
+          <li>PDFs e apostilas inclusos</li>
+          <li>Conteúdo atualizado mensalmente</li>
           <li>Painel de responsáveis</li>
           <li>Cancele a qualquer momento</li>
         </ul>
-        <a href="https://pay.kiwify.com.br/LNdFgja" class="plan-btn">Assinar Mensal</a>
+        <a href="https://pay.kiwify.com.br/vzdvBkH" class="plan-btn">Assinar Mensal</a>
       </div>
 
       <!-- BIMESTRAL -->
@@ -1293,17 +882,18 @@ img{max-width:100%;height:auto;display:block;}
         <div class="plan-name">Bimestral</div>
         <div class="plan-price-wrap">
           <span class="plan-currency">R$</span>
-          <span class="plan-price">56,80</span>
-          <span class="plan-period">a cada 2 meses</span>
+          <span class="plan-price">34,90</span>
+          <span class="plan-period">a cada 2 meses · R$17,45/mês</span>
         </div>
-        <div class="plan-saving">Economize 5%</div>
+        <div class="plan-saving">Economize R$ 4,90</div>
         <ul class="plan-features">
           <li>Acesso completo à plataforma</li>
-          <li>Todos os PDFs e apostilas</li>
+          <li>PDFs e apostilas inclusos</li>
+          <li>Conteúdo atualizado mensalmente</li>
           <li>Painel de responsáveis</li>
           <li>Cancele a qualquer momento</li>
         </ul>
-        <a href="https://pay.kiwify.com.br/yGEpq1Q" class="plan-btn">Assinar Bimestral</a>
+        <a href="https://pay.kiwify.com.br/JaqepYz" class="plan-btn">Assinar Bimestral</a>
       </div>
 
       <!-- ANUAL — DESTAQUE -->
@@ -1312,20 +902,23 @@ img{max-width:100%;height:auto;display:block;}
         <div class="plan-icon">🏆</div>
         <div class="plan-name">Anual</div>
         <div class="plan-price-wrap">
+          <span class="plan-currency" style="text-decoration:line-through;font-size:.7rem;opacity:.6;">R$238,80</span>
+          <br>
           <span class="plan-currency">R$</span>
-          <span class="plan-price">287,00</span>
-          <span class="plan-period">por ano · R$23,91/mês</span>
+          <span class="plan-price">119,90</span>
+          <span class="plan-period">por ano · R$9,99/mês</span>
         </div>
-        <div class="plan-saving">Economize 20%</div>
+        <div class="plan-saving">Metade do preço mensal 🔥</div>
         <ul class="plan-features">
           <li>Acesso completo à plataforma</li>
-          <li>Todos os PDFs e apostilas</li>
+          <li>PDFs e apostilas inclusos</li>
+          <li>Conteúdo atualizado mensalmente</li>
           <li>Painel de responsáveis</li>
           <li>Prioridade no suporte</li>
           <li>Certificado de conclusão</li>
           <li>Cancele a qualquer momento</li>
         </ul>
-        <a href="https://pay.kiwify.com.br/arqkyGt" class="plan-btn">🚀 Assinar Anual</a>
+        <a href="https://pay.kiwify.com.br/B2k5Rjs" class="plan-btn">🚀 Assinar Anual</a>
       </div>
 
       <!-- TRIMESTRAL -->
@@ -1333,18 +926,21 @@ img{max-width:100%;height:auto;display:block;}
         <div class="plan-icon">🗓️</div>
         <div class="plan-name">Trimestral</div>
         <div class="plan-price-wrap">
+          <span class="plan-currency" style="text-decoration:line-through;font-size:.7rem;opacity:.6;">R$59,70</span>
+          <br>
           <span class="plan-currency">R$</span>
-          <span class="plan-price">82,20</span>
-          <span class="plan-period">a cada 3 meses</span>
+          <span class="plan-price">44,90</span>
+          <span class="plan-period">a cada 3 meses · R$14,96/mês</span>
         </div>
-        <div class="plan-saving">Economize 8%</div>
+        <div class="plan-saving">Quase 1 mês grátis!</div>
         <ul class="plan-features">
           <li>Acesso completo à plataforma</li>
-          <li>Todos os PDFs e apostilas</li>
+          <li>PDFs e apostilas inclusos</li>
+          <li>Conteúdo atualizado mensalmente</li>
           <li>Painel de responsáveis</li>
           <li>Cancele a qualquer momento</li>
         </ul>
-        <a href="https://pay.kiwify.com.br/f5INkNp" class="plan-btn">Assinar Trimestral</a>
+        <a href="https://pay.kiwify.com.br/ZvY0MHk" class="plan-btn">Assinar Trimestral</a>
       </div>
 
       <!-- SEMESTRAL -->
@@ -1352,18 +948,21 @@ img{max-width:100%;height:auto;display:block;}
         <div class="plan-icon">📊</div>
         <div class="plan-name">Semestral</div>
         <div class="plan-price-wrap">
+          <span class="plan-currency" style="text-decoration:line-through;font-size:.7rem;opacity:.6;">R$119,40</span>
+          <br>
           <span class="plan-currency">R$</span>
-          <span class="plan-price">155,40</span>
-          <span class="plan-period">a cada 6 meses</span>
+          <span class="plan-price">79,90</span>
+          <span class="plan-period">a cada 6 meses · R$13,31/mês</span>
         </div>
-        <div class="plan-saving">Economize 13%</div>
+        <div class="plan-saving">≈ 2 meses grátis!</div>
         <ul class="plan-features">
           <li>Acesso completo à plataforma</li>
-          <li>Todos os PDFs e apostilas</li>
+          <li>PDFs e apostilas inclusos</li>
+          <li>Conteúdo atualizado mensalmente</li>
           <li>Painel de responsáveis</li>
           <li>Cancele a qualquer momento</li>
         </ul>
-        <a href="https://pay.kiwify.com.br/JKvQLhj" class="plan-btn">Assinar Semestral</a>
+        <a href="https://pay.kiwify.com.br/UDx0ujI" class="plan-btn">Assinar Semestral</a>
       </div>
 
     </div>
@@ -1450,7 +1049,7 @@ img{max-width:100%;height:auto;display:block;}
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            Todos os planos dão acesso completo à plataforma digital (letras, sílabas, matemática, inglês, quiz, bíblia, medalhas e certificados) mais os PDFs e apostilas para impressão. Não há conteúdo bloqueado.
+            Todos os planos dão acesso completo à plataforma digital (letras, sílabas, matemática, inglês, quiz, bíblia, medalhas e certificados) mais os PDFs e apostilas para impressão — e todo o conteúdo, tanto do app quanto dos PDFs, é atualizado mensalmente. Não há conteúdo bloqueado.
           </div>
         </div>
       </div>
@@ -1462,7 +1061,7 @@ img{max-width:100%;height:auto;display:block;}
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            O conteúdo é idêntico em todos os planos! A diferença é apenas na duração do período e no valor total: quanto maior o período, maior a economia. O Plano Anual oferece o melhor custo-benefício, economizando até 20%.
+            O conteúdo é idêntico em todos os planos — app, PDFs e atualizações mensais inclusos em todos! A diferença é apenas na duração e no valor: Mensal R$19,90 · Bimestral R$34,90 (equivale a R$17,45/mês) · Trimestral R$44,90 (≈ R$14,96/mês) · Semestral R$79,90 (≈ R$13,31/mês) · Anual R$119,90 (R$9,99/mês — metade do preço mensal). Quanto maior o período, maior a economia.
           </div>
         </div>
       </div>
@@ -1491,7 +1090,7 @@ img{max-width:100%;height:auto;display:block;}
   <div class="bg-blob" style="width:250px;height:250px;background:var(--green);bottom:-60px;left:-60px;animation-delay:2s;"></div>
   <div class="cta-inner">
     <h2 class="fade-up">Comece hoje mesmo! 🚀<br>Seu filho merece aprender com alegria.</h2>
-    <p class="fade-up">Acesso imediato, cancele quando quiser. Mais de 8 módulos interativos esperando por vocês!</p>
+    <p class="fade-up">Acesso imediato, cancele quando quiser. Quiz, módulos e PDFs atualizados todo mês para seu filho sempre ter conteúdo novo!</p>
     <div class="cta-btns fade-up">
       <a href="#planos" class="btn-primary" style="font-size:1.15rem;padding:18px 44px;">✨ Assinar Agora</a>
       <a href="#faq" class="btn-secondary">Ainda tenho dúvidas</a>
